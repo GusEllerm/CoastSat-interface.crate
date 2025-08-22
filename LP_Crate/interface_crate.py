@@ -10,7 +10,7 @@ from helper import GitURL
 from e1_crate import build_e1_crate
 from e2_2_crate import build_e2_2_crate
 from notebook_provenance.provenance_types import NotebookCellProvenance
-from config import get_file_limit
+from config import get_file_limit, set_file_limit
 
 import os
 import re
@@ -666,7 +666,13 @@ def get_parser() -> argparse.ArgumentParser:
         required=False, 
         default=Path(__file__).parent / "interface.crate", 
         help="Directory to write the interface RO-Crate."
-    ) 
+    )
+    parser.add_argument(
+        "--limit", 
+        type=str, 
+        default=None, 
+        help="Maximum number of files to include. Use 'none' for no limit (default: use config.py setting)"
+    )
     return parser
 
 def main():
@@ -678,6 +684,22 @@ def main():
     args = parser.parse_args()
     coastsat_dir = args.coastsat_dir
     output_dir = args.output_dir
+
+    # Set the global limit if provided
+    if args.limit is not None:
+        if args.limit.lower() in ['none', 'null', 'unlimited']:
+            print("Setting global file limit to: None (unlimited)")
+            set_file_limit(None)
+        else:
+            try:
+                limit_value = int(args.limit)
+                print(f"Setting global file limit to: {limit_value}")
+                set_file_limit(limit_value)
+            except ValueError:
+                print(f"Error: Invalid limit value '{args.limit}'. Use an integer or 'none'.")
+                return 1
+    else:
+        print(f"Using default file limit from config: {get_file_limit()}")
 
     # Setup GitURL for the repo
     URL = GitURL(repo_path=args.coastsat_dir, remote_name="origin")

@@ -1,1 +1,0 @@
-trends.columns, transects.columns, trends.columns.isin(transects.columns)

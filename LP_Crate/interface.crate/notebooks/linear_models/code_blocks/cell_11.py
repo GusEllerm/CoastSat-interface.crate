@@ -1,1 +1,0 @@
-trends[trends.index.str.startswith("sar")].describe()
