@@ -26,7 +26,7 @@ jobs:
 
       - name: Generate Interface Crate
         run: |
-          conda run -n coastsat_stencila_env python LP_Crate/interface_crate.py 
+          conda run -n coastsat_stencila_env python LP_Crate/interface_crate.py  --limit none
 
       - name: Patch release URL into interface.crate
         run: |
