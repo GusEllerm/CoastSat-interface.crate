@@ -161,6 +161,8 @@ def add_time_series_outputs(crate: ROCrate, limit: Optional[int], action: Contex
         tag = "nzd"
     elif "sardinia" in action_id:
         tag = "sar"
+    elif "ber" in action_id:
+        tag = "ber"
     else:
         return []  # unrecognized action id
 
@@ -246,9 +248,13 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
         add_create_action(crate,
             "#batch-process-sardinia",
             "Update Sardinia transect time series",
-            "Batch process to update transect time series for Sardinia using Google Earth Engine.")
+            "Batch process to update transect time series for Sardinia using Google Earth Engine."),
+        add_create_action(crate,
+            "#batch-process-bermuda",
+            "Update Bermuda transect time series",
+            "Batch process to update transect time series for Bermuda using Google Earth Engine.")
     ]
-    nz_action, sardinia_action = actions  
+    nz_action, sardinia_action, bermuda_action = actions
 
     # Add software applications for each action
     software = [
@@ -269,19 +275,30 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
             code_repository=URL.get("batch_process_sar.py")['permalink_url'],
             local_file_path=os.path.join(coastsat_dir, "batch_process_sar.py"),
             github_token=os.environ.get("GITHUB_TOKEN", "")
-            )
+            ),
+        add_software_application(crate,
+            "#batch-process-bermuda-app",
+            "Batch Process Bermuda Application",
+            "Application for batch processing Bermuda transec time series",
+            programming_language="Python",
+            code_repository=URL.get("bermuda.py")['permalink_url'],
+            local_file_path=os.path.join(coastsat_dir, "bermuda.ipynb"),
+            github_token=os.environ.get("GITHUB_TOKEN", "")
+        )
     ]
-    nz_app, sardinia_app = software
+    nz_app, sardinia_app, bermuda_app = software
 
     # Add example inputs. This draws from the previous commit's data files
     # to ensure reproducibility, as the current commit may not have the same files.
     limit = get_file_limit()
     nz_timeseries_inputs = add_time_series_inputs(crate, limit, nz_action, URL, coastsat_dir)
     sar_timeseries_inputs = add_time_series_inputs(crate, limit, sardinia_action, URL, coastsat_dir)
+    bermuda_app_inputs = add_time_series_inputs(crate, limit, bermuda_action, URL, coastsat_dir)
 
     # Add example outputs. This draws from the current commit's data files
     nz_timeseries_outputs = add_time_series_outputs(crate, limit, nz_action, URL, coastsat_dir)
     sar_timeseries_outputs = add_time_series_outputs(crate, limit, sardinia_action, URL, coastsat_dir)
+    bermuda_timeseries_outputs = add_time_series_outputs(crate, limit, bermuda_action, URL, coastsat_dir)
     
     Organisation = add_organization(crate,
         "#university-of-auckland",
@@ -331,10 +348,14 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
             action["instrument"] = nz_app
             action["object"] = input_files + nz_timeseries_inputs
             action["result"] = nz_timeseries_outputs
-        else:
+        elif action == sardinia_action:
             action["instrument"] = sardinia_app
             action["object"] = input_files + sar_timeseries_inputs
             action["result"] = sar_timeseries_outputs
+        elif action == bermuda_action:
+            action["instrument"] = bermuda_app
+            action["object"] = input_files + bermuda_app_inputs
+            action["result"] = bermuda_timeseries_outputs
 
     # Write to output
     crate.write(output_dir)

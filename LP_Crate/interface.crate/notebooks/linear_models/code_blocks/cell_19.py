@@ -1,0 +1,1 @@
+transects.drop_duplicates().to_file("transects_extended.geojson", driver="GeoJSON")
