@@ -33,8 +33,8 @@ jobs:
         id: get_commits
         run: |
           # Define the working commits we identified from backwards testing
-          # TESTING: Only Cyclone Tam commits for initial test
-          WORKING_COMMITS='["1e4cacd20:2025-03-01","1c1f71632:2025-04-08","50d0e5aac:2025-05-01"]'
+          # All 12 commits known to work with interface.crate generation
+          WORKING_COMMITS='["cb67e8e26:2025-08-01","8b035950d:2025-07-01","ab3c82104:2025-06-18","75b4792ed:2025-06-03","38581fe8f:2025-06-01","c7f215188:2025-05-06","f30812af0:2025-05-06","50d0e5aac:2025-05-01","1c1f71632:2025-04-08","ac172de14:2025-03-05","1e4cacd20:2025-03-01","e0b1805be:2025-02-01"]'
           
           # Use custom list if provided (would need custom parsing), otherwise use all working commits
           if [ -n "${{ github.event.inputs.target_commits }}" ]; then
