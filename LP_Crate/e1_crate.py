@@ -296,7 +296,7 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
         add_file_entity(
             crate=crate,
             name="Polygons GeoJSON",
-            identifier=URL.get_previous("polygons.geojson")['permalink_url'],
+            identifier=URL.get("polygons.geojson")['permalink_url'],
             content_size=URL.get_size_at_commit("polygons.geojson", URL.get_previous("polygons.geojson")['commit_hash']),
             description="Polygon bounding boxes defining where to download imagery.",
             sha_256=URL.get_file_hash("polygons.geojson", "previous"),
@@ -304,7 +304,7 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
         add_file_entity(
             crate=crate,
             name="Shorelines GeoJSON",
-            identifier=URL.get_previous("shorelines.geojson")['permalink_url'],
+            identifier=URL.get("shorelines.geojson")['permalink_url'],
             content_size=URL.get_size_at_commit("shorelines.geojson", URL.get_previous("shorelines.geojson")['commit_hash']),
             description="Reference shorelines for transects.",
             sha_256=URL.get_file_hash("shorelines.geojson", "previous"),
@@ -313,7 +313,7 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
         add_file_entity(
             crate=crate,
             name="Transects Extended GeoJSON",
-            identifier=URL.get_previous("transects_extended.geojson")['permalink_url'],
+            identifier=URL.get("transects_extended.geojson")['permalink_url'],
             content_size=URL.get_size_at_commit("transects_extended.geojson", URL.get_previous("transects_extended.geojson")['commit_hash']),
             description="Transects with extended geometry for processing.",
             sha_256=URL.get_file_hash("transects_extended.geojson"),

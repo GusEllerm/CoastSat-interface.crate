@@ -467,12 +467,21 @@ def add_pacific_rim_data(crate: ROCrate, coastsat_dir: str, URL: GitURL, limit: 
     external_data["hasPart"] = pacific_rim_data  # type: ignore
 
     # Loop over directories in csv_run7 within coastsat_dir (with limit)
-    csv_run7_dir = Path(coastsat_dir) / "csv_run7"
+    # Check for both old and new directory names for backward compatibility
+    csv_run_dirs = ["csv_run7", "shoreline_data_run6"]
+    csv_run_dir = None
+    
+    for dir_name in csv_run_dirs:
+        potential_dir = Path(coastsat_dir) / dir_name
+        if potential_dir.exists() and potential_dir.is_dir():
+            csv_run_dir = potential_dir
+            break
+    
     file_entities = []
-    if csv_run7_dir.exists() and csv_run7_dir.is_dir():
+    if csv_run_dir is not None:
         files_to_add = []
         count = 0
-        for subdir in csv_run7_dir.iterdir():
+        for subdir in csv_run_dir.iterdir():
             if subdir.is_dir():
                 target_file = subdir / "time_series_tidally_corrected.csv"
                 if target_file.exists():
