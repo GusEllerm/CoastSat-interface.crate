@@ -1,1 +1,0 @@
-(transects.trend - trends.trend).describe()

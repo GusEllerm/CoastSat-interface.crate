@@ -1,0 +1,195 @@
+name: Generate Historical Interface Crates
+
+on:
+  workflow_dispatch:  # Manual trigger only
+    inputs:
+      target_commits:
+        description: 'Comma-separated list of CoastSat commits to process (leave empty for all working commits)'
+        required: false
+        default: ''
+      skip_existing:
+        description: 'Skip commits that already have releases'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  identify-working-commits:
+    runs-on: ubuntu-latest
+    outputs:
+      working_commits: ${{ steps.get_commits.outputs.commits }}
+      
+    steps:
+      - name: Checkout this repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Get working commits
+        id: get_commits
+        run: |
+          # Define the working commits we identified from backwards testing
+          # TESTING: Only Cyclone Tam commits for initial test
+          WORKING_COMMITS='["1e4cacd20:2025-03-01","1c1f71632:2025-04-08","50d0e5aac:2025-05-01"]'
+          
+          # Use custom list if provided (would need custom parsing), otherwise use all working commits
+          if [ -n "${{ github.event.inputs.target_commits }}" ]; then
+            echo "Custom commit lists not yet supported in this version"
+            echo "Using all working commits instead"
+          fi
+          
+          echo "commits=$WORKING_COMMITS" >> $GITHUB_OUTPUT
+          echo "Working commits to process: $WORKING_COMMITS"
+
+  generate-historical-crates:
+    needs: identify-working-commits
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        commit_info: ${{ fromJson(needs.identify-working-commits.outputs.working_commits) }}
+      fail-fast: false  # Continue processing other commits even if one fails
+      max-parallel: 1   # Process one at a time to avoid conflicts
+
+    steps:
+      - name: Parse commit info
+        id: parse_commit
+        run: |
+          COMMIT_INFO="${{ matrix.commit_info }}"
+          COMMIT_HASH=$(echo "$COMMIT_INFO" | cut -d':' -f1)
+          COMMIT_DATE=$(echo "$COMMIT_INFO" | cut -d':' -f2)
+          
+          echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
+          echo "commit_date=$COMMIT_DATE" >> $GITHUB_OUTPUT
+          echo "release_name=historical-interface.crate-${COMMIT_HASH}-${COMMIT_DATE}" >> $GITHUB_OUTPUT
+          
+          echo "Processing commit: $COMMIT_HASH ($COMMIT_DATE)"
+
+      - name: Check if release already exists
+        id: check_release
+        if: github.event.inputs.skip_existing == 'true'
+        run: |
+          RELEASE_NAME="${{ steps.parse_commit.outputs.release_name }}"
+          
+          if gh release view "$RELEASE_NAME" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "Release $RELEASE_NAME already exists, skipping..."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Release $RELEASE_NAME does not exist, proceeding..."
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout this repo with submodules
+        if: steps.check_release.outputs.skip != 'true'
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Checkout target CoastSat commit
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          cd CoastSat
+          git checkout ${{ steps.parse_commit.outputs.commit_hash }}
+          echo "Checked out CoastSat commit: $(git rev-parse --short HEAD)"
+
+      - name: Set up Conda
+        if: steps.check_release.outputs.skip != 'true'
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: coastsat_stencila_env
+          environment-file: environment.yaml
+          python-version: "3.10"
+
+      - name: Export GitHub Gist token
+        if: steps.check_release.outputs.skip != 'true'
+        run: echo "GITHUB_TOKEN=${{ secrets.GH_GIST_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Generate Historical Interface Crate
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          echo "Generating interface.crate for commit ${{ steps.parse_commit.outputs.commit_hash }} (${{ steps.parse_commit.outputs.commit_date }})"
+          conda run -n coastsat_stencila_env python LP_Crate/interface_crate.py --limit none
+
+      - name: Create release
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          RELEASE_NAME="${{ steps.parse_commit.outputs.release_name }}"
+          COMMIT_HASH="${{ steps.parse_commit.outputs.commit_hash }}"
+          COMMIT_DATE="${{ steps.parse_commit.outputs.commit_date }}"
+          
+          RELEASE_NOTES="Historical Interface Crate generated from CoastSat auto-update commit.
+          
+          **CoastSat Commit:** \`$COMMIT_HASH\`
+          **Date:** $COMMIT_DATE
+          **Type:** Historical Snapshot
+          
+          This interface.crate represents the state of the CoastSat experiment at the time of the auto-update on $COMMIT_DATE. It was generated retrospectively as part of the historical analysis project.
+          
+          For more information about the CoastSat project, see the main repository."
+          
+          gh release create "$RELEASE_NAME" \
+            --title "Historical Interface Crate ($COMMIT_DATE - $COMMIT_HASH)" \
+            --notes "$RELEASE_NOTES" \
+            --prerelease
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Patch release URL into interface.crate
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/${{ steps.parse_commit.outputs.release_name }}"
+          conda run -n coastsat_stencila_env python LP_Crate/patch_release_url.py "$RELEASE_URL"
+
+      - name: Zip historical interface crate
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          COMMIT_HASH="${{ steps.parse_commit.outputs.commit_hash }}"
+          COMMIT_DATE="${{ steps.parse_commit.outputs.commit_date }}"
+          ZIP_NAME="historical-interface-crate-${COMMIT_HASH}-${COMMIT_DATE}.zip"
+          
+          cd LP_Crate
+          zip -r "../$ZIP_NAME" interface.crate/
+          echo "Created archive: $ZIP_NAME"
+
+      - name: Upload crate to release
+        if: steps.check_release.outputs.skip != 'true'
+        run: |
+          RELEASE_NAME="${{ steps.parse_commit.outputs.release_name }}"
+          COMMIT_HASH="${{ steps.parse_commit.outputs.commit_hash }}"
+          COMMIT_DATE="${{ steps.parse_commit.outputs.commit_date }}"
+          ZIP_NAME="historical-interface-crate-${COMMIT_HASH}-${COMMIT_DATE}.zip"
+          
+          gh release upload "$RELEASE_NAME" "$ZIP_NAME" --clobber
+          echo "Uploaded $ZIP_NAME to release $RELEASE_NAME"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Restore CoastSat to HEAD
+        if: always()
+        run: |
+          cd CoastSat
+          git checkout main
+          echo "Restored CoastSat to main branch"
+
+  summary:
+    needs: [identify-working-commits, generate-historical-crates]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Generate summary
+        run: |
+          echo "## Historical Interface Crate Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commits processed:** ${{ needs.identify-working-commits.outputs.working_commits }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** Check individual job results above" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All historical interface.crates have been published as pre-releases." >> $GITHUB_STEP_SUMMARY
+          echo "They can be found in the [Releases section](https://github.com/${{ github.repository }}/releases)." >> $GITHUB_STEP_SUMMARY

@@ -238,67 +238,95 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
     crate.metadata["conformsTo"] = {
         "@id": "https://w3id.org/ro/wfrun/process/0.5"
     }
+    
+    # Check which files exist to determine available actions
+    batch_nz_exists = os.path.exists(os.path.join(coastsat_dir, "batch_process_NZ.py"))
+    batch_sar_exists = os.path.exists(os.path.join(coastsat_dir, "batch_process_sar.py"))
+    bermuda_exists = os.path.exists(os.path.join(coastsat_dir, "bermuda.ipynb"))
+    
+    print(f"   📋 Available batch processing files:")
+    print(f"      {'✅' if batch_nz_exists else '❌'} batch_process_NZ.py")
+    print(f"      {'✅' if batch_sar_exists else '❌'} batch_process_sar.py") 
+    print(f"      {'✅' if bermuda_exists else '❌'} bermuda.ipynb")
 
-    # Add create actions for batch processing
-    actions = [
-        add_create_action(crate,
+    # Add create actions for batch processing (only for existing files)
+    actions = []
+    
+    if batch_nz_exists:
+        actions.append(add_create_action(crate,
             "#batch-process-nz",
             "Update NZ transect time series",
-            "Batch process to update transect time series for New Zealand using Google Earth Engine."),
-        add_create_action(crate,
+            "Batch process to update transect time series for New Zealand using Google Earth Engine."))
+    
+    if batch_sar_exists:
+        actions.append(add_create_action(crate,
             "#batch-process-sardinia",
             "Update Sardinia transect time series",
-            "Batch process to update transect time series for Sardinia using Google Earth Engine."),
-        add_create_action(crate,
+            "Batch process to update transect time series for Sardinia using Google Earth Engine."))
+    
+    if bermuda_exists:
+        actions.append(add_create_action(crate,
             "#batch-process-bermuda",
             "Update Bermuda transect time series",
-            "Batch process to update transect time series for Bermuda using Google Earth Engine.")
-    ]
-    nz_action, sardinia_action, bermuda_action = actions
+            "Batch process to update transect time series for Bermuda using Google Earth Engine."))
+    
+    # Assign actions to variables for backward compatibility
+    nz_action = actions[0] if batch_nz_exists else None
+    sardinia_action = actions[1] if batch_sar_exists and batch_nz_exists else (actions[0] if batch_sar_exists and not batch_nz_exists else None)
+    bermuda_action = None
+    for action in actions:
+        if "bermuda" in action.id:
+            bermuda_action = action
+            break
 
-    # Add software applications for each action
-    software = [
-        add_software_application(crate,
+    # Add software applications for each action (only for existing files)
+    software = []
+    nz_app = sardinia_app = bermuda_app = None
+    
+    if batch_nz_exists:
+        nz_app = add_software_application(crate,
             "#batch-process-nz-app",
             "Batch Process NZ Application",
             "Application for batch processing New Zealand transect time series.",
             programming_language="Python",
             code_repository=URL.get("batch_process_NZ.py")['permalink_url'],
             local_file_path=os.path.join(coastsat_dir, "batch_process_NZ.py"),
-            github_token=os.environ.get("GITHUB_TOKEN", "")
-            ),
-        add_software_application(crate,
+            github_token=os.environ.get("GITHUB_TOKEN", ""))
+        software.append(nz_app)
+    
+    if batch_sar_exists:
+        sardinia_app = add_software_application(crate,
             "#batch-process-sardinia-app",
             "Batch Process Sardinia Application",
             "Application for batch processing Sardinia transect time series.",
             programming_language="Python",
             code_repository=URL.get("batch_process_sar.py")['permalink_url'],
             local_file_path=os.path.join(coastsat_dir, "batch_process_sar.py"),
-            github_token=os.environ.get("GITHUB_TOKEN", "")
-            ),
-        add_software_application(crate,
+            github_token=os.environ.get("GITHUB_TOKEN", ""))
+        software.append(sardinia_app)
+    
+    if bermuda_exists:
+        bermuda_app = add_software_application(crate,
             "#batch-process-bermuda-app",
             "Batch Process Bermuda Application",
             "Application for batch processing Bermuda transec time series",
             programming_language="Python",
             code_repository=URL.get("bermuda.py")['permalink_url'],
             local_file_path=os.path.join(coastsat_dir, "bermuda.ipynb"),
-            github_token=os.environ.get("GITHUB_TOKEN", "")
-        )
-    ]
-    nz_app, sardinia_app, bermuda_app = software
+            github_token=os.environ.get("GITHUB_TOKEN", ""))
+        software.append(bermuda_app)
 
     # Add example inputs. This draws from the previous commit's data files
     # to ensure reproducibility, as the current commit may not have the same files.
     limit = get_file_limit()
-    nz_timeseries_inputs = add_time_series_inputs(crate, limit, nz_action, URL, coastsat_dir)
-    sar_timeseries_inputs = add_time_series_inputs(crate, limit, sardinia_action, URL, coastsat_dir)
-    bermuda_app_inputs = add_time_series_inputs(crate, limit, bermuda_action, URL, coastsat_dir)
+    nz_timeseries_inputs = add_time_series_inputs(crate, limit, nz_action, URL, coastsat_dir) if nz_action else []
+    sar_timeseries_inputs = add_time_series_inputs(crate, limit, sardinia_action, URL, coastsat_dir) if sardinia_action else []
+    bermuda_app_inputs = add_time_series_inputs(crate, limit, bermuda_action, URL, coastsat_dir) if bermuda_action else []
 
     # Add example outputs. This draws from the current commit's data files
-    nz_timeseries_outputs = add_time_series_outputs(crate, limit, nz_action, URL, coastsat_dir)
-    sar_timeseries_outputs = add_time_series_outputs(crate, limit, sardinia_action, URL, coastsat_dir)
-    bermuda_timeseries_outputs = add_time_series_outputs(crate, limit, bermuda_action, URL, coastsat_dir)
+    nz_timeseries_outputs = add_time_series_outputs(crate, limit, nz_action, URL, coastsat_dir) if nz_action else []
+    sar_timeseries_outputs = add_time_series_outputs(crate, limit, sardinia_action, URL, coastsat_dir) if sardinia_action else []
+    bermuda_timeseries_outputs = add_time_series_outputs(crate, limit, bermuda_action, URL, coastsat_dir) if bermuda_action else []
     
     Organisation = add_organization(crate,
         "#university-of-auckland",
@@ -340,19 +368,21 @@ def build_e1_crate(output_dir: str, coastsat_dir: str):
    
     # Link CreateActions to root dataset
     root = crate.root_dataset
-    root["mentions"] = [nz_action, sardinia_action]
+    available_actions = [action for action in [nz_action, sardinia_action, bermuda_action] if action is not None]
+    root["mentions"] = available_actions
     root["conformsTo"] = "https://w3id.org/ro/wfrun/process/0.5"
-    for action in actions:
+    
+    for action in available_actions:
         action["agent"] = [Author, Organisation]
-        if action == nz_action:
+        if action == nz_action and nz_app:
             action["instrument"] = nz_app
             action["object"] = input_files + nz_timeseries_inputs
             action["result"] = nz_timeseries_outputs
-        elif action == sardinia_action:
+        elif action == sardinia_action and sardinia_app:
             action["instrument"] = sardinia_app
             action["object"] = input_files + sar_timeseries_inputs
             action["result"] = sar_timeseries_outputs
-        elif action == bermuda_action:
+        elif action == bermuda_action and bermuda_app:
             action["instrument"] = bermuda_app
             action["object"] = input_files + bermuda_app_inputs
             action["result"] = bermuda_timeseries_outputs

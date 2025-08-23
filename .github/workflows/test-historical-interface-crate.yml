@@ -1,0 +1,110 @@
+name: Test Historical Interface Crate (Single Commit)
+
+on:
+  workflow_dispatch:  # Manual trigger only
+    inputs:
+      test_commit:
+        description: 'Single commit to test (format: hash:date)'
+        required: true
+        default: '1e4cacd20:2025-03-01'
+
+jobs:
+  test-single-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Parse test commit
+        id: parse_commit
+        run: |
+          COMMIT_INFO="${{ github.event.inputs.test_commit }}"
+          COMMIT_HASH=$(echo "$COMMIT_INFO" | cut -d':' -f1)
+          COMMIT_DATE=$(echo "$COMMIT_INFO" | cut -d':' -f2)
+          
+          echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
+          echo "commit_date=$COMMIT_DATE" >> $GITHUB_OUTPUT
+          echo "release_name=test-historical-interface.crate-${COMMIT_HASH}-${COMMIT_DATE}" >> $GITHUB_OUTPUT
+          
+          echo "Testing commit: $COMMIT_HASH ($COMMIT_DATE)"
+
+      - name: Checkout this repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Checkout target CoastSat commit
+        run: |
+          cd CoastSat
+          git checkout ${{ steps.parse_commit.outputs.commit_hash }}
+          echo "Checked out CoastSat commit: $(git rev-parse --short HEAD)"
+          
+          # Show which files exist for debugging
+          echo "Available files in CoastSat:"
+          ls -la *.py *.ipynb 2>/dev/null || echo "No Python files found"
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: coastsat_stencila_env
+          environment-file: environment.yaml
+          python-version: "3.10"
+
+      - name: Export GitHub Gist token
+        run: echo "GITHUB_TOKEN=${{ secrets.GH_GIST_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Test Interface Crate Generation (Limited)
+        run: |
+          echo "Testing interface.crate generation for commit ${{ steps.parse_commit.outputs.commit_hash }} (${{ steps.parse_commit.outputs.commit_date }})"
+          echo "Using limit=5 for faster testing"
+          conda run -n coastsat_stencila_env python LP_Crate/interface_crate.py --limit 5
+
+      - name: Verify generated files
+        run: |
+          echo "Checking generated interface.crate contents:"
+          ls -la LP_Crate/interface.crate/
+          
+          # Check if key files exist
+          if [ -f "LP_Crate/interface.crate/ro-crate-metadata.json" ]; then
+            echo "✅ ro-crate-metadata.json exists"
+          else
+            echo "❌ ro-crate-metadata.json missing"
+            exit 1
+          fi
+
+      - name: Test ZIP creation
+        run: |
+          COMMIT_HASH="${{ steps.parse_commit.outputs.commit_hash }}"
+          COMMIT_DATE="${{ steps.parse_commit.outputs.commit_date }}"
+          ZIP_NAME="test-historical-interface-crate-${COMMIT_HASH}-${COMMIT_DATE}.zip"
+          
+          cd LP_Crate
+          zip -r "../$ZIP_NAME" interface.crate/
+          echo "Created test archive: $ZIP_NAME"
+          
+          # Verify zip contents
+          cd ..
+          unzip -l "$ZIP_NAME" | head -10
+
+      - name: Upload test artifact (No Release)
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-interface-crate-${{ steps.parse_commit.outputs.commit_hash }}
+          path: test-historical-interface-crate-*.zip
+          retention-days: 7
+
+      - name: Restore CoastSat to HEAD
+        if: always()
+        run: |
+          cd CoastSat
+          git checkout main
+          echo "Restored CoastSat to main branch"
+
+      - name: Test Summary
+        run: |
+          echo "## Test Results for Commit ${{ steps.parse_commit.outputs.commit_hash }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ steps.parse_commit.outputs.commit_hash }}" >> $GITHUB_STEP_SUMMARY  
+          echo "**Date:** ${{ steps.parse_commit.outputs.commit_date }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ✅ Interface crate generated successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The test artifact has been uploaded and can be downloaded from the Actions tab." >> $GITHUB_STEP_SUMMARY
