@@ -86,7 +86,7 @@ jobs:
           unzip -l "$ZIP_NAME" | head -10
 
       - name: Upload test artifact (No Release)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-interface-crate-${{ steps.parse_commit.outputs.commit_hash }}
           path: test-historical-interface-crate-*.zip
