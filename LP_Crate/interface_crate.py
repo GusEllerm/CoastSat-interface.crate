@@ -626,7 +626,7 @@ def add_aggregate_entities(crate: ROCrate, URL: GitURL):
         "name": "LivePublication Interface Outputs",
         "description": "This entity represents the outputs of the Experiment Infrastructure required by the LivePublication interface. It includes references to data produced by E1 (Data Producer), E2.1 (Workflow Infrastructure), E2.2 (Workflow Management System), and E3 (Experimental Results and Outcomes).",
         "datePublished": URL.get_commit_date(),
-        "version": URL.get_commit_info_for_file("update.sh")["commit_url"]}
+        "version": URL.get_current_commit()}
         ))
     
     E1 = crate.add(ContextEntity(crate, "E1-data-producer", properties={

@@ -191,6 +191,13 @@ class GitURL:
         except subprocess.CalledProcessError:
             raise ValueError("Could not retrieve commit date.")
 
+    def get_current_commit(self):
+        """
+        Returns the URL for the latest commit of the repository.
+        Format: https://github.com/owner/repo/commit/full_commit_hash
+        """
+        return f"{self.remote_url}/commit/{self.commit_hash}"
+
 if __name__ == "__main__":
     # Example usage
     url_gen = GitURL(
