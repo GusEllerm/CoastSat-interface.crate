@@ -13,32 +13,6 @@ jobs:
         with:
           fetch-depth: 0  # Ensures full commit history is cloned
 
-      - name: Clone latest CoastSat repository
-        run: |
-          echo "::notice::Cloning latest CoastSat repository from upstream..."
-          git clone https://github.com/UoA-eResearch/CoastSat.git CoastSat
-          
-          # Get the commit information
-          COASTSAT_COMMIT=$(git -C CoastSat rev-parse HEAD)
-          COASTSAT_COMMIT_SHORT=$(git -C CoastSat rev-parse --short HEAD)
-          COASTSAT_COMMIT_MSG=$(git -C CoastSat log -1 --pretty=%B | head -n 1)
-          COASTSAT_COMMIT_DATE=$(git -C CoastSat log -1 --pretty=%ci)
-          COASTSAT_COMMIT_AUTHOR=$(git -C CoastSat log -1 --pretty=%an)
-          
-          echo "::notice::=========================================="
-          echo "::notice::Building Interface Crate from latest CoastSat commit"
-          echo "::notice::=========================================="
-          echo "::notice::Commit ID: ${COASTSAT_COMMIT}"
-          echo "::notice::Short ID: ${COASTSAT_COMMIT_SHORT}"
-          echo "::notice::Message: ${COASTSAT_COMMIT_MSG}"
-          echo "::notice::Date: ${COASTSAT_COMMIT_DATE}"
-          echo "::notice::Author: ${COASTSAT_COMMIT_AUTHOR}"
-          echo "::notice::=========================================="
-          
-          # Save commit info for later steps
-          echo "COASTSAT_COMMIT=${COASTSAT_COMMIT}" >> $GITHUB_ENV
-          echo "COASTSAT_COMMIT_SHORT=${COASTSAT_COMMIT_SHORT}" >> $GITHUB_ENV
-
       - name: Check token permissions
         run: |
           echo "Checking if the token has the required permissions..."
@@ -69,6 +43,32 @@ jobs:
           echo "✓ Token has sufficient permissions to create releases"
         env:
           GH_TOKEN: ${{ secrets.GH_GIST_TOKEN }}
+
+      - name: Clone latest CoastSat repository
+        run: |
+          echo "::notice::Cloning latest CoastSat repository from upstream..."
+          git clone https://github.com/UoA-eResearch/CoastSat.git CoastSat
+          
+          # Get the commit information
+          COASTSAT_COMMIT=$(git -C CoastSat rev-parse HEAD)
+          COASTSAT_COMMIT_SHORT=$(git -C CoastSat rev-parse --short HEAD)
+          COASTSAT_COMMIT_MSG=$(git -C CoastSat log -1 --pretty=%B | head -n 1)
+          COASTSAT_COMMIT_DATE=$(git -C CoastSat log -1 --pretty=%ci)
+          COASTSAT_COMMIT_AUTHOR=$(git -C CoastSat log -1 --pretty=%an)
+          
+          echo "::notice::=========================================="
+          echo "::notice::Building Interface Crate from latest CoastSat commit"
+          echo "::notice::=========================================="
+          echo "::notice::Commit ID: ${COASTSAT_COMMIT}"
+          echo "::notice::Short ID: ${COASTSAT_COMMIT_SHORT}"
+          echo "::notice::Message: ${COASTSAT_COMMIT_MSG}"
+          echo "::notice::Date: ${COASTSAT_COMMIT_DATE}"
+          echo "::notice::Author: ${COASTSAT_COMMIT_AUTHOR}"
+          echo "::notice::=========================================="
+          
+          # Save commit info for later steps
+          echo "COASTSAT_COMMIT=${COASTSAT_COMMIT}" >> $GITHUB_ENV
+          echo "COASTSAT_COMMIT_SHORT=${COASTSAT_COMMIT_SHORT}" >> $GITHUB_ENV
 
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
