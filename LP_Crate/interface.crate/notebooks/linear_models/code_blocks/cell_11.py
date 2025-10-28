@@ -1,0 +1,1 @@
+trends[trends.index.str.startswith("ber")]

@@ -1,0 +1,1271 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2025-10-28T02:24:24+00:00",
+            "hasPart": [
+                {
+                    "@id": "batch_processes/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0023/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/usa_CA_0239/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/chi0406/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0211/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/nzd0516/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://zenodo.org/records/15614554/"
+                },
+                {
+                    "@id": "update.sh"
+                },
+                {
+                    "@id": "tidal_correction-1.ipynb"
+                },
+                {
+                    "@id": "slope_estimation.ipynb"
+                },
+                {
+                    "@id": "tidal_correction-2.ipynb"
+                },
+                {
+                    "@id": "linear_models.ipynb"
+                },
+                {
+                    "@id": "make_xlsx.py"
+                },
+                {
+                    "@id": "notebooks/tidal_correction-1/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "notebooks/slope_estimation/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "notebooks/tidal_correction-2/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "notebooks/linear_models/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0516/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0172/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0340/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0186/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0529/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/transects_extended.geojson"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/polygons.geojson"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar0939/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar2491/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1214/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1026/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0516/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar0590/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0516/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0172/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0340/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0186/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0529/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar2491/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1214/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1026/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar0590/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1442/transect_time_series.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/aus0023/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/usa_CA_0239/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/chi0406/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/aus0211/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/nzd0516/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/transect_time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/transect_time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/transect_time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/transect_time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/transect_time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/tides.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/transects_extended.geojson"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/transects.xlsx"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/nzd0516.xlsx"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/nzd0172.xlsx"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/nzd0340.xlsx"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/nzd0186.xlsx"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/nzd0529.xlsx"
+                }
+            ],
+            "mainEntity": {
+                "@id": "livepublication-interface"
+            },
+            "name": "LivePublication Interface Crate"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "livepublication-interface",
+            "@type": "Thing",
+            "datePublished": "2025-10-24T19:18:12+13:00",
+            "description": "This entity represents the outputs of the Experiment Infrastructure required by the LivePublication interface. It includes references to data produced by E1 (Data Producer), E2.1 (Workflow Infrastructure), E2.2 (Workflow Management System), and E3 (Experimental Results and Outcomes).",
+            "hasPart": [
+                {
+                    "@id": "E1-data-producer"
+                },
+                {
+                    "@id": "E2.1-workflow-infrastructure"
+                },
+                {
+                    "@id": "E2.2-wms"
+                },
+                {
+                    "@id": "E3-experimental-results"
+                }
+            ],
+            "name": "LivePublication Interface Outputs",
+            "version": "https://github.com/UoA-eResearch/CoastSat/commit/b91acb30495b8cbaa237ac74dd9aa3c08def3c20"
+        },
+        {
+            "@id": "E1-data-producer",
+            "@type": "Thing",
+            "description": "This Collection includes both the process run metadata and external data sources relevant to data production.",
+            "hasPart": [
+                {
+                    "@id": "batch_processes/ro-crate-metadata.json"
+                },
+                {
+                    "@id": "external-data"
+                }
+            ],
+            "name": "E1: Data Producer"
+        },
+        {
+            "@id": "E2.1-workflow-infrastructure",
+            "@type": "Thing",
+            "description": "Description of hardware and software environments used.",
+            "name": "E2.1: Workflow Infrastructure"
+        },
+        {
+            "@id": "E2.2-wms",
+            "@type": "Thing",
+            "description": "Provenance of workflow execution including workflow steps and parameters.",
+            "hasPart": [
+                {
+                    "@id": "update.sh"
+                }
+            ],
+            "name": "E2.2: Workflow Management System"
+        },
+        {
+            "@id": "E3-experimental-results",
+            "@type": "Thing",
+            "description": "Results of the executed workflow, such as figures and summary data products.",
+            "name": "E3: Experimental Results and Outcomes"
+        },
+        {
+            "@id": "#uoa-coastsat",
+            "@type": "Person",
+            "name": "example"
+        },
+        {
+            "@id": "University of Auckland",
+            "@type": "Organization",
+            "name": "University of Auckland",
+            "url": "https://www.auckland.ac.nz"
+        },
+        {
+            "@id": "batch_processes/ro-crate-metadata.json",
+            "@type": [
+                "RO-Crate",
+                "ProcessRunCrate"
+            ],
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/wfrun/process/0.5"
+            },
+            "dateCreated": "2025-10-28T02:24:27.188090+00:00",
+            "description": "This Process Run represents the execution of the data production scripts.",
+            "name": "Data Producer Process Run"
+        },
+        {
+            "@id": "external-data",
+            "@type": "Dataset",
+            "description": "External data sources used in the data production process.",
+            "hasPart": {
+                "@id": "https://zenodo.org/records/15614554/"
+            },
+            "name": "External Data Sources"
+        },
+        {
+            "@id": "https://zenodo.org/records/15614554/",
+            "@type": "Dataset",
+            "description": "External data sources used in the data production process.",
+            "encodingFormat": "text/csv",
+            "hasPart": [
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0211/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/usa_CA_0239/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/chi0406/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/nzd0516/time_series_tidally_corrected.csv"
+                },
+                {
+                    "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0023/time_series_tidally_corrected.csv"
+                }
+            ],
+            "name": "Pacific Rim Data",
+            "sameAs": "https://doi.org/10.5281/zenodo.15614554"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0023/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "48ac24282f7e68b764921a9c3ade7dd2ea39be54a42a4042cec65065162b2ab6",
+            "size": "1025.18"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/usa_CA_0239/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "2fdb822d2d27bd17ea1b29c90eb35777565708bf36e6faee9d66d741f329ae93",
+            "size": "188.81"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/chi0406/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "d62febd76aeca70ad549cf0e53fac6c6472b2bd6e42fd9745c1e2bf3b2443452",
+            "size": "1926.62"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/aus0211/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "8ff587381d43ff04fd405faa99a2869f7ec7fb69611007d53fd371f8ee17dd92",
+            "size": "109.65"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/csv_run7/nzd0516/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "3fcd7121276b70ce9641522d6f849630b5ca6237c35513d83c5a99b905367712",
+            "size": "236.83"
+        },
+        {
+            "@id": "Bash",
+            "@type": "ComputerLanguage",
+            "description": "Bash is a Unix shell and command language.",
+            "name": "Bash"
+        },
+        {
+            "@id": "update.sh",
+            "@type": [
+                "SoftwareSourceCode",
+                "HowTo",
+                "File"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/update.sh",
+            "description": "This script updates the CoastSat project and executes the computational workflow.\n\nComments:\n# For new sites, first we need to run tidal_correction to fetch the tides, then we can run slope_estimation, then we can use the slopes to apply the tidal correction\n# This is why tidal_correction.ipynb is run twice",
+            "encodingFormat": "text/x-sh",
+            "input": [
+                {
+                    "@id": "#fp-tides-1"
+                },
+                {
+                    "@id": "#fp-transectsextended-1"
+                },
+                {
+                    "@id": "#fp-polygons-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                },
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "CoastSat Update Script",
+            "output": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                },
+                {
+                    "@id": "#fp-tides-5"
+                },
+                {
+                    "@id": "#fp-transectsextended-3"
+                },
+                {
+                    "@id": "#fp-transects_xlsx-1"
+                },
+                {
+                    "@id": "#fp-transect_site_xlsx-1"
+                }
+            ],
+            "programmingLanguage": {
+                "@id": "Bash"
+            },
+            "step": [
+                {
+                    "@id": "tidal_correction-1.ipynb"
+                },
+                {
+                    "@id": "slope_estimation.ipynb"
+                },
+                {
+                    "@id": "tidal_correction-2.ipynb"
+                },
+                {
+                    "@id": "linear_models.ipynb"
+                },
+                {
+                    "@id": "make_xlsx.py"
+                }
+            ]
+        },
+        {
+            "@id": "Python",
+            "@type": "ComputerLanguage",
+            "name": "Python",
+            "url": "https://www.python.org/"
+        },
+        {
+            "@id": "tidal_correction-1.ipynb",
+            "@type": [
+                "File",
+                "HowToStep",
+                "SoftwareSourceCode"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/tidal_correction.ipynb",
+            "encodingFormat": "application/x-ipynb+json",
+            "exampleOfWork": {
+                "@id": "notebooks/tidal_correction-1/ro-crate-metadata.json"
+            },
+            "input": [
+                {
+                    "@id": "#fp-polygons-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                },
+                {
+                    "@id": "#fp-transectsextended-1"
+                },
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tidal_correction.ipynb",
+            "output": [
+                {
+                    "@id": "#fp-tides-2"
+                },
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-1"
+                },
+                {
+                    "@id": "#fp-tides-3"
+                }
+            ],
+            "position": "0",
+            "programmingLanguage": {
+                "@id": "Python"
+            },
+            "sha256": "77bb8589a130ddff3719b664e2d295cae98d49e84a06b4466e37b930bbc46f49"
+        },
+        {
+            "@id": "slope_estimation.ipynb",
+            "@type": [
+                "File",
+                "HowToStep",
+                "SoftwareSourceCode"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/slope_estimation.ipynb",
+            "encodingFormat": "application/x-ipynb+json",
+            "exampleOfWork": {
+                "@id": "notebooks/slope_estimation/ro-crate-metadata.json"
+            },
+            "input": [
+                {
+                    "@id": "#fp-transectsextended-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                },
+                {
+                    "@id": "#fp-tides-3"
+                }
+            ],
+            "name": "slope_estimation.ipynb",
+            "output": [
+                {
+                    "@id": "#fp-transectsextended-2"
+                }
+            ],
+            "position": "1",
+            "programmingLanguage": {
+                "@id": "Python"
+            },
+            "sha256": "db974fb8302e16178d19845c6033ddbeeadbef5e9db7062a7b52178c9f18737e"
+        },
+        {
+            "@id": "tidal_correction-2.ipynb",
+            "@type": [
+                "File",
+                "HowToStep",
+                "SoftwareSourceCode"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/tidal_correction.ipynb",
+            "encodingFormat": "application/x-ipynb+json",
+            "exampleOfWork": {
+                "@id": "notebooks/tidal_correction-2/ro-crate-metadata.json"
+            },
+            "input": [
+                {
+                    "@id": "#fp-polygons-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                },
+                {
+                    "@id": "#fp-transectsextended-2"
+                },
+                {
+                    "@id": "#fp-tides-3"
+                }
+            ],
+            "name": "tidal_correction.ipynb",
+            "output": [
+                {
+                    "@id": "#fp-tides-4"
+                },
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                },
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "position": "2",
+            "programmingLanguage": {
+                "@id": "Python"
+            },
+            "sha256": "77bb8589a130ddff3719b664e2d295cae98d49e84a06b4466e37b930bbc46f49"
+        },
+        {
+            "@id": "linear_models.ipynb",
+            "@type": [
+                "File",
+                "HowToStep",
+                "SoftwareSourceCode"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/linear_models.ipynb",
+            "encodingFormat": "application/x-ipynb+json",
+            "exampleOfWork": {
+                "@id": "notebooks/linear_models/ro-crate-metadata.json"
+            },
+            "input": [
+                {
+                    "@id": "#fp-transectsextended-2"
+                },
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                },
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "linear_models.ipynb",
+            "output": [
+                {
+                    "@id": "#fp-transectsextended-3"
+                }
+            ],
+            "position": "3",
+            "programmingLanguage": {
+                "@id": "Python"
+            },
+            "sha256": "0c64be56bdf00001893f675ec29d6823eed8440719d28089d8c08d1f8db11ca9"
+        },
+        {
+            "@id": "make_xlsx.py",
+            "@type": [
+                "File",
+                "HowToStep",
+                "SoftwareSourceCode"
+            ],
+            "codeRepository": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/make_xlsx.py",
+            "encodingFormat": "text/x-python",
+            "input": [
+                {
+                    "@id": "#fp-transectsextended-1"
+                },
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "make_xlsx.py",
+            "output": [
+                {
+                    "@id": "#fp-transects_xlsx-1"
+                },
+                {
+                    "@id": "#fp-transect_site_xlsx-1"
+                }
+            ],
+            "position": "4",
+            "programmingLanguage": {
+                "@id": "Python"
+            },
+            "sha256": "dca8f73eef061d10d4b25e85f91afe82adf6995498557cf6f0996e86f91fab2e"
+        },
+        {
+            "@id": "notebooks/tidal_correction-1/ro-crate-metadata.json",
+            "@type": "RO-Crate",
+            "description": "Provenance RO-Crate for notebook/script tidal_correction-1.ipynb.",
+            "name": "tidal_correction-1.ipynb Provenance Crate"
+        },
+        {
+            "@id": "notebooks/slope_estimation/ro-crate-metadata.json",
+            "@type": "RO-Crate",
+            "description": "Provenance RO-Crate for notebook/script slope_estimation.ipynb.",
+            "name": "slope_estimation.ipynb Provenance Crate"
+        },
+        {
+            "@id": "notebooks/tidal_correction-2/ro-crate-metadata.json",
+            "@type": "RO-Crate",
+            "description": "Provenance RO-Crate for notebook/script tidal_correction-2.ipynb.",
+            "name": "tidal_correction-2.ipynb Provenance Crate"
+        },
+        {
+            "@id": "notebooks/linear_models/ro-crate-metadata.json",
+            "@type": "RO-Crate",
+            "description": "Provenance RO-Crate for notebook/script linear_models.ipynb.",
+            "name": "linear_models.ipynb Provenance Crate"
+        },
+        {
+            "@id": "#fp-polygons-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-polygons-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transecttimeseries-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transecttimeseries-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transectsextended-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transectsextended-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-tides-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-tides-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-tides-2",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-tides-2",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transecttimeseriestidallycorrected-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transecttimeseriestidallycorrected-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-tides-3",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-tides-3",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transectsextended-2",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transectsextended-2",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-tides-4",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-tides-4",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transecttimeseriestidallycorrected-2",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transecttimeseriestidallycorrected-2",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-tides-5",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-tides-5",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-timeseriestidallycorrected-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-timeseriestidallycorrected-1",
+            "valueRequired": true
+        },
+        {
+            "@id": "#fp-transectsextended-3",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "conformsTo": {
+                "@id": "https://bioschemas.org/profiles/FormalParameter/1.0-RELEASE"
+            },
+            "name": "#fp-transectsextended-3",
+            "valueRequired": true
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0516/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "25b144306770e41bf25579c47be168f8e5715336d3bc66fc222e8eea2ba20728",
+            "size": "16.18"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0172/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "133b3c62c578092f1b0c09a7f1bc02c9a5b195ebd8970fec0074e439781b8724",
+            "size": "13.80"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0340/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "b2ee5ac863eda474879f7dd7bae283c8f578b102f049eb3943837a7e61d22000",
+            "size": "15.74"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0186/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "e02cf03aaa8b2608d127069265ae2d159316d03eb8d6c25cee3f485117bb9d6e",
+            "size": "20.21"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0529/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-1"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "d329cefedd168ec5dfbfa5e7eb03b918ff2a695e1d3f259be5460672f685f4c5",
+            "size": "12.31"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/transects_extended.geojson",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transectsextended-1"
+                }
+            ],
+            "name": "transects_extended.geojson",
+            "sha256": "91eaec1bb11b76848dc5b2beb612daf674a22149602acbb74e9b0a6046515c89",
+            "size": "90149.42"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/polygons.geojson",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-polygons-1"
+                }
+            ],
+            "name": "polygons.geojson",
+            "sha256": "9c622a1630a149bb373ff9b4db39e0c4787ebea82ddcb71ca3da5451f56ce0a9",
+            "size": "2271.26"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar0939/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "f520fbcbf3bac60b446eb4062a0f7e7a4ae2a4751a8bbbfd0aa261e65726eef7",
+            "size": "95.09"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar2491/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "575cb286e393c12050396043be6352ee38b4961bb09b4deed06a517068a5f759",
+            "size": "55.69"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1214/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "c82af8cb8a1fc9ecf334793d874e70991fa80679c98c73f9b4e2627c6fc648dd",
+            "size": "50.16"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1026/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "3b25501df51a9d885f7765ab50109e062d6277867c5f9a914beab1f233ab7b01",
+            "size": "57.49"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0516/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "f805bab1ed14ec9ab697114696fb74864d3a88e2cba93978a3434997e56f896a",
+            "size": "86.43"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar0590/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "6c9066b1169d0f7f7d9d48db323f6d1221a1e72e1e0288176ccdcabb6cde1586",
+            "size": "56.16"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0172/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "081973d00ec79a1f2574b99a3a832be3f076da1790a4ae3b69f9aa12c3db914f",
+            "size": "24.29"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0340/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "e32b72e30bc4f3cf662154600be5ba2c75de0c494e382a3cd40e1b261f3637c5",
+            "size": "67.90"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0186/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "cfc852473fd7e295433f03882c75bc0a8a64778ca25e94194697634a75951dbd",
+            "size": "44.54"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/nzd0529/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "a6edf2c7ec69c6cfe51e1d4fff5d0065c17b5e584cdefa76f240047675dfc904",
+            "size": "91.77"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/data/sar1442/transect_time_series.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseries-1"
+                }
+            ],
+            "name": "transect_time_series.csv",
+            "sha256": "15262fa94e855e0861bb6960b3c9ce1608ad6caad0fb81a3510731d1caa25aa7",
+            "size": "90.42"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/aus0023/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "48ac24282f7e68b764921a9c3ade7dd2ea39be54a42a4042cec65065162b2ab6",
+            "size": "1025.18"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/usa_CA_0239/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "2fdb822d2d27bd17ea1b29c90eb35777565708bf36e6faee9d66d741f329ae93",
+            "size": "188.81"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/chi0406/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "d62febd76aeca70ad549cf0e53fac6c6472b2bd6e42fd9745c1e2bf3b2443452",
+            "size": "1926.62"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/aus0211/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "8ff587381d43ff04fd405faa99a2869f7ec7fb69611007d53fd371f8ee17dd92",
+            "size": "109.65"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/f427ba95cce0156cfcdb855d0d38f220aea5b04c/csv_run7/nzd0516/time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-timeseriestidallycorrected-1"
+                }
+            ],
+            "name": "time_series_tidally_corrected.csv",
+            "sha256": "3fcd7121276b70ce9641522d6f849630b5ca6237c35513d83c5a99b905367712",
+            "size": "236.83"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/transect_time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "transect_time_series_tidally_corrected.csv",
+            "sha256": "d94b79b8768e5d68a71d98ed78d81fc36b9a6cc6ea32912d592efa23fafab5f1",
+            "size": "158.11"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/transect_time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "transect_time_series_tidally_corrected.csv",
+            "sha256": "a39aa115c22e74b55c5a153b1064cf3d6d47160799a656c11fc158c23d095a56",
+            "size": "34.90"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/transect_time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "transect_time_series_tidally_corrected.csv",
+            "sha256": "ed1a693c748ad61fc3f8fdfcca47c2528fb982259482098fd4b7188ebd41c9f4",
+            "size": "118.52"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/transect_time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "transect_time_series_tidally_corrected.csv",
+            "sha256": "894ee63d7facfc9a5239afc1dac98d4b7d47d26a4746df17431928b4908e9ed4",
+            "size": "67.86"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/transect_time_series_tidally_corrected.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transecttimeseriestidallycorrected-2"
+                }
+            ],
+            "name": "transect_time_series_tidally_corrected.csv",
+            "sha256": "948d272abe312460cd7c8adf1d20773c7b8ca0be71e3fb16245a37daf217639e",
+            "size": "166.65"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "25b144306770e41bf25579c47be168f8e5715336d3bc66fc222e8eea2ba20728",
+            "size": "16.18"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "133b3c62c578092f1b0c09a7f1bc02c9a5b195ebd8970fec0074e439781b8724",
+            "size": "13.80"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "b2ee5ac863eda474879f7dd7bae283c8f578b102f049eb3943837a7e61d22000",
+            "size": "15.74"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "e02cf03aaa8b2608d127069265ae2d159316d03eb8d6c25cee3f485117bb9d6e",
+            "size": "20.21"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/tides.csv",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-tides-5"
+                }
+            ],
+            "name": "tides.csv",
+            "sha256": "d329cefedd168ec5dfbfa5e7eb03b918ff2a695e1d3f259be5460672f685f4c5",
+            "size": "12.31"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/transects_extended.geojson",
+            "@type": "File",
+            "exampleOfWork": [
+                {
+                    "@id": "#fp-transectsextended-3"
+                }
+            ],
+            "name": "transects_extended.geojson",
+            "sha256": "3cdf1fc60c13b5853e77649919ab42eba774949e809cebd6e69046809a01c1bc",
+            "size": "90169.82"
+        },
+        {
+            "@id": "#fp-transects_xlsx-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "name": "#fp-transects_xlsx-1",
+            "valueRequired": false
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/transects.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transects_xlsx-1"
+            },
+            "name": "transects.xlsx",
+            "sha256": "5e7463a57b29c602c1ee4ae275cc27096889f4c9942bbe0f4898525ae20fbb45",
+            "size": "7923.68"
+        },
+        {
+            "@id": "#fp-transect_site_xlsx-1",
+            "@type": "FormalParameter",
+            "additionalType": "File",
+            "name": "#fp-transect_site_xlsx-1",
+            "valueRequired": false
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0516/nzd0516.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transect_site_xlsx-1"
+            },
+            "name": "nzd0516.xlsx",
+            "sha256": "e7057a08a6f5fd8e3c848c7b88f853e426066eb43ef70129c169bb7b46fd3ff5",
+            "size": "305.07"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0172/nzd0172.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transect_site_xlsx-1"
+            },
+            "name": "nzd0172.xlsx",
+            "sha256": "54ce6e06d87d3f339a9b50143ebb544f1dc0daf705d00893da2e8392b548b9a7",
+            "size": "70.11"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0340/nzd0340.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transect_site_xlsx-1"
+            },
+            "name": "nzd0340.xlsx",
+            "sha256": "34cc7e39b35c6aea998166664d4cf459eb6f6bfc5c691789a9c82547ee930772",
+            "size": "227.09"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0186/nzd0186.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transect_site_xlsx-1"
+            },
+            "name": "nzd0186.xlsx",
+            "sha256": "e723af81ffd286085008421e189694def540d09cc1fc327b212b507dd47db21a",
+            "size": "128.93"
+        },
+        {
+            "@id": "https://github.com/UoA-eResearch/CoastSat/blob/b91acb30495b8cbaa237ac74dd9aa3c08def3c20/data/nzd0529/nzd0529.xlsx",
+            "@type": "File",
+            "exampleOfWork": {
+                "@id": "#fp-transect_site_xlsx-1"
+            },
+            "name": "nzd0529.xlsx",
+            "sha256": "47578e91689af367037725e83de575c75f494e4b20455b0b7931c80d22e41e44",
+            "size": "333.43"
+        }
+    ]
+}

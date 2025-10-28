@@ -1,0 +1,1 @@
+transects[transects.site_id.str.startswith("sar") & ~transects.trend.isna()]

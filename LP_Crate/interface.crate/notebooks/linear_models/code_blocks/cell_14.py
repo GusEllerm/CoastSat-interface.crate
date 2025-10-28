@@ -1,0 +1,1 @@
+transects.update(trends.drop_duplicates())

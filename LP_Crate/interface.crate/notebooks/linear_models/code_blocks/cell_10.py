@@ -1,0 +1,1 @@
+trends[trends.n_points_nonan > 10].sort_values("r2_score")

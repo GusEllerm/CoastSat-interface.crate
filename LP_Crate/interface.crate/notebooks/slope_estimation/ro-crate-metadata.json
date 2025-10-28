@@ -1,0 +1,254 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2025-10-28T02:24:27+00:00",
+            "hasPart": [
+                {
+                    "@id": "slope_estimation.ipynb"
+                },
+                {
+                    "@id": "code_blocks/cell_1.py"
+                },
+                {
+                    "@id": "code_blocks/cell_2.py"
+                },
+                {
+                    "@id": "code_blocks/cell_3.py"
+                },
+                {
+                    "@id": "code_blocks/cell_4.py"
+                }
+            ],
+            "mainEntity": {
+                "@id": "slope_estimation.ipynb"
+            },
+            "name": "Notebook Provenance Crate (slope_estimation.ipynb)"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "slope_estimation.ipynb",
+            "@type": [
+                "File",
+                "SoftwareSourceCode",
+                "HowTo"
+            ],
+            "input": [
+                {
+                    "@id": "#fp-tides_csv"
+                },
+                {
+                    "@id": "#fp-transect_time_series_csv"
+                },
+                {
+                    "@id": "#fp-transects_extended_geojson"
+                }
+            ],
+            "output": [
+                {
+                    "@id": "#fp-transects_extended_geojson"
+                }
+            ],
+            "step": [
+                {
+                    "@id": "#step-1"
+                },
+                {
+                    "@id": "#step-2"
+                },
+                {
+                    "@id": "#step-3"
+                },
+                {
+                    "@id": "#step-4"
+                }
+            ],
+            "targetProduct": {
+                "@id": "#jupyter-kernel"
+            }
+        },
+        {
+            "@id": "#jupyter-kernel",
+            "@type": "SoftwareApplication",
+            "description": "Jupyter Notebook kernel for Python 3",
+            "identifier": "python3",
+            "name": "Jupyter Notebook Kernel",
+            "programmingLanguage": "python3",
+            "softwareVersion": "3.12.3",
+            "version": "3.12.3"
+        },
+        {
+            "@id": "#step-1",
+            "@type": "HowToStep",
+            "about": {
+                "@id": "#create-action-1"
+            },
+            "name": "Code cell 1",
+            "position": 1,
+            "tool": {
+                "@id": "#jupyter-kernel"
+            },
+            "workExample": {
+                "@id": "code_blocks/cell_1.py"
+            }
+        },
+        {
+            "@id": "#step-2",
+            "@type": "HowToStep",
+            "about": {
+                "@id": "#create-action-2"
+            },
+            "name": "Code cell 2",
+            "position": 2,
+            "tool": {
+                "@id": "#jupyter-kernel"
+            },
+            "workExample": {
+                "@id": "code_blocks/cell_2.py"
+            }
+        },
+        {
+            "@id": "#step-3",
+            "@type": "HowToStep",
+            "about": {
+                "@id": "#create-action-3"
+            },
+            "name": "Code cell 3",
+            "position": 3,
+            "tool": {
+                "@id": "#jupyter-kernel"
+            },
+            "workExample": {
+                "@id": "code_blocks/cell_3.py"
+            }
+        },
+        {
+            "@id": "#step-4",
+            "@type": "HowToStep",
+            "about": {
+                "@id": "#create-action-4"
+            },
+            "name": "Code cell 4",
+            "position": 4,
+            "tool": {
+                "@id": "#jupyter-kernel"
+            },
+            "workExample": {
+                "@id": "code_blocks/cell_4.py"
+            }
+        },
+        {
+            "@id": "#fp-tides_csv",
+            "@type": "FormalParameter",
+            "name": "tides.csv"
+        },
+        {
+            "@id": "#fp-transect_time_series_csv",
+            "@type": "FormalParameter",
+            "name": "transect_time_series.csv"
+        },
+        {
+            "@id": "#fp-transects_extended_geojson",
+            "@type": "FormalParameter",
+            "name": "transects_extended.geojson"
+        },
+        {
+            "@id": "code_blocks/cell_1.py",
+            "@type": [
+                "SoftwareApplication",
+                "File"
+            ],
+            "input": [],
+            "name": "Code Cell 1",
+            "output": [],
+            "sha256": "44b7d1379c903d0936a08ceb400faf9bcb60a2a0b0651b8be6ca22a2d8652f4c"
+        },
+        {
+            "@id": "code_blocks/cell_2.py",
+            "@type": [
+                "SoftwareApplication",
+                "File"
+            ],
+            "input": [
+                {
+                    "@id": "#fp-transects_extended_geojson"
+                }
+            ],
+            "name": "Code Cell 2",
+            "output": [],
+            "sha256": "1a1d222d91a7575d75929e0ad2cbeee5e935b7395764195949db9deaa94e500a"
+        },
+        {
+            "@id": "code_blocks/cell_3.py",
+            "@type": [
+                "SoftwareApplication",
+                "File"
+            ],
+            "input": [],
+            "name": "Code Cell 3",
+            "output": [],
+            "sha256": "e70519a3fc41e01f2e3d0d0840d30bd958d64a4421e2290667bda0d9605e29d8"
+        },
+        {
+            "@id": "code_blocks/cell_4.py",
+            "@type": [
+                "SoftwareApplication",
+                "File"
+            ],
+            "input": [
+                {
+                    "@id": "#fp-tides_csv"
+                },
+                {
+                    "@id": "#fp-transect_time_series_csv"
+                }
+            ],
+            "name": "Code Cell 4",
+            "output": [
+                {
+                    "@id": "#fp-transects_extended_geojson"
+                }
+            ],
+            "sha256": "fb50d218d85e950ecb027397ac080b941f27c922193383cc73a4f323670e5be1"
+        },
+        {
+            "@id": "#create-action-1",
+            "@type": "CreateAction",
+            "instrument": {
+                "@id": "code_blocks/cell_1.py"
+            }
+        },
+        {
+            "@id": "#create-action-2",
+            "@type": "CreateAction",
+            "instrument": {
+                "@id": "code_blocks/cell_2.py"
+            }
+        },
+        {
+            "@id": "#create-action-3",
+            "@type": "CreateAction",
+            "instrument": {
+                "@id": "code_blocks/cell_3.py"
+            }
+        },
+        {
+            "@id": "#create-action-4",
+            "@type": "CreateAction",
+            "instrument": {
+                "@id": "code_blocks/cell_4.py"
+            }
+        }
+    ]
+}
