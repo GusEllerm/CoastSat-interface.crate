@@ -14,6 +14,37 @@ jobs:
           submodules: recursive
           fetch-depth: 0  # Ensures full commit history is cloned
 
+      - name: Check token permissions
+        run: |
+          echo "Checking if the token has the required permissions..."
+          
+          # Check if we can authenticate
+          if ! gh auth status > /dev/null 2>&1; then
+            echo "::error::Unable to authenticate with GitHub token"
+            exit 1
+          fi
+          
+          # Get repository permissions
+          RESPONSE=$(gh api repos/${{ github.repository }} --jq '.permissions' 2>&1) || {
+            echo "::error::Failed to fetch repository permissions. Ensure the token has 'repo' scope."
+            exit 1
+          }
+          
+          # Check for required permissions (admin or push to create releases)
+          HAS_PUSH=$(echo "$RESPONSE" | jq -r '.push // false')
+          HAS_ADMIN=$(echo "$RESPONSE" | jq -r '.admin // false')
+          
+          if [[ "$HAS_PUSH" != "true" && "$HAS_ADMIN" != "true" ]]; then
+            echo "::error::Token does not have sufficient permissions to create releases."
+            echo "::error::Required: 'push' or 'admin' permission on the repository."
+            echo "::error::Please ensure the token has the 'repo' scope and appropriate permissions."
+            exit 1
+          fi
+          
+          echo "✓ Token has sufficient permissions to create releases"
+        env:
+          GH_TOKEN: ${{ secrets.GH_GIST_TOKEN }}
+
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
