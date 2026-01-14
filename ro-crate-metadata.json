@@ -47,7 +47,7 @@
                 "@id": "#coastsat-interface-crate-generator"
             },
             "name": "CoastSat interface.crate generation",
-            "version": "1.0.0"
+            "version": "1.0.1"
         },
         {
             "@id": "ro-crate-metadata.json",

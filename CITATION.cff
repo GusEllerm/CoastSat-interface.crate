@@ -3,7 +3,7 @@ message: "If you use this software, please cite it."
 title: "CoastSat interface.crate generation"
 abstract: "Tooling that generates a LivePublication interface.crate for the CoastSat case study by packaging experiment infrastructure outputs into an RO-Crate interface object to support reproducible, live publications."
 license: Apache-2.0
-version: "1.0.0"
+version: "1.0.1"
 repository-code: "https://github.com/GusEllerm/CoastSat-interface.crate"
 url: "https://github.com/GusEllerm/CoastSat-interface.crate"
 doi: "10.5281/zenodo.18250231"
