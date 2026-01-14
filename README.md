@@ -1,4 +1,5 @@
-# CoastSat interface.crate generation
+# CoastSat interface.crate generation [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18250232.svg)](https://doi.org/10.5281/zenodo.18250232)
+
 
 This repository implements the generation of a LivePublication `interface.crate` for the CoastSat case study (Chapter 6). It produces RO-Crate metadata that describes the experiment infrastructure outputs required by the LivePublication interface, contributing tooling that constructs and validates the crate used as the interface object between computational infrastructure and live publications.
 
