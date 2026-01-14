@@ -6,6 +6,7 @@
             "@type": "Dataset",
             "datePublished": "2026-01-14T22:31:40+00:00",
             "description": "Tooling that generates a LivePublication interface.crate for the CoastSat case study, producing RO-Crate metadata that describes experiment infrastructure outputs and supports reproducible live publications.",
+            "identifier": "https://doi.org/10.5281/zenodo.18250231",
             "hasPart": [
                 {
                     "@id": "README.md"

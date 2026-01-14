@@ -6,6 +6,7 @@ license: Apache-2.0
 version: "1.0.0"
 repository-code: "https://github.com/GusEllerm/CoastSat-interface.crate"
 url: "https://github.com/GusEllerm/CoastSat-interface.crate"
+doi: "10.5281/zenodo.18250231"
 authors:
   - family-names: Ellerm
     given-names: Augustus
@@ -18,3 +19,4 @@ preferred-citation:
       given-names: Augustus
       orcid: "https://orcid.org/0000-0001-8260-231X"
   url: "https://github.com/GusEllerm/CoastSat-interface.crate"
+  doi: "10.5281/zenodo.18250231"
