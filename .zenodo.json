@@ -1,0 +1,33 @@
+{
+  "title": "CoastSat interface.crate generation",
+  "description": "Tooling that generates a LivePublication interface.crate for the CoastSat case study, producing RO-Crate metadata that describes experiment infrastructure outputs and supports reproducible live publications.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Ellerm, Augustus",
+      "orcid": "0000-0001-8260-231X"
+    }
+  ],
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "keywords": [
+    "LivePublication",
+    "RO-Crate",
+    "CoastSat",
+    "interface.crate",
+    "provenance",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/GusEllerm/CoastSat-interface.crate",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/UoA-eResearch/CoastSat",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ]
+}

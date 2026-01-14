@@ -1,0 +1,135 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2026-01-14T22:31:40+00:00",
+            "description": "Tooling that generates a LivePublication interface.crate for the CoastSat case study, producing RO-Crate metadata that describes experiment infrastructure outputs and supports reproducible live publications.",
+            "hasPart": [
+                {
+                    "@id": "README.md"
+                },
+                {
+                    "@id": "LICENSE"
+                },
+                {
+                    "@id": "LP_Crate/interface_crate.py"
+                },
+                {
+                    "@id": "LP_Crate/make_crate.sh"
+                },
+                {
+                    "@id": "run_computation.sh"
+                },
+                {
+                    "@id": "environment.yaml"
+                },
+                {
+                    "@id": "scripts/generate_ro_crate.py"
+                },
+                {
+                    "@id": "scripts/validate_metadata.py"
+                },
+                {
+                    "@id": "CITATION.cff"
+                },
+                {
+                    "@id": "codemeta.json"
+                },
+                {
+                    "@id": ".zenodo.json"
+                }
+            ],
+            "license": "https://spdx.org/licenses/Apache-2.0",
+            "mainEntity": {
+                "@id": "#coastsat-interface-crate-generator"
+            },
+            "name": "CoastSat interface.crate generation",
+            "version": "1.0.0"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "https://orcid.org/0000-0001-8260-231X",
+            "@type": "Person",
+            "familyName": "Ellerm",
+            "givenName": "Augustus",
+            "name": "Augustus Ellerm"
+        },
+        {
+            "@id": "#coastsat-interface-crate-generator",
+            "@type": "SoftwareSourceCode",
+            "author": {
+                "@id": "https://orcid.org/0000-0001-8260-231X"
+            },
+            "codeRepository": "https://github.com/GusEllerm/CoastSat-interface.crate",
+            "description": "Tooling that generates a LivePublication interface.crate for the CoastSat case study, producing RO-Crate metadata that describes experiment infrastructure outputs and supports reproducible live publications.",
+            "license": "https://spdx.org/licenses/Apache-2.0",
+            "name": "CoastSat interface.crate generation"
+        },
+        {
+            "@id": "README.md",
+            "@type": "File",
+            "name": "README.md"
+        },
+        {
+            "@id": "LICENSE",
+            "@type": "File",
+            "name": "LICENSE"
+        },
+        {
+            "@id": "LP_Crate/interface_crate.py",
+            "@type": "File",
+            "name": "interface_crate.py"
+        },
+        {
+            "@id": "LP_Crate/make_crate.sh",
+            "@type": "File",
+            "name": "make_crate.sh"
+        },
+        {
+            "@id": "run_computation.sh",
+            "@type": "File",
+            "name": "run_computation.sh"
+        },
+        {
+            "@id": "environment.yaml",
+            "@type": "File",
+            "name": "environment.yaml"
+        },
+        {
+            "@id": "scripts/generate_ro_crate.py",
+            "@type": "File",
+            "name": "generate_ro_crate.py"
+        },
+        {
+            "@id": "scripts/validate_metadata.py",
+            "@type": "File",
+            "name": "validate_metadata.py"
+        },
+        {
+            "@id": "CITATION.cff",
+            "@type": "File",
+            "name": "CITATION.cff"
+        },
+        {
+            "@id": "codemeta.json",
+            "@type": "File",
+            "name": "codemeta.json"
+        },
+        {
+            "@id": ".zenodo.json",
+            "@type": "File",
+            "name": ".zenodo.json"
+        }
+    ]
+}

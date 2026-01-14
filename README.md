@@ -1,87 +1,51 @@
-# CoastSat-LivePub ~ Under Development
+# CoastSat interface.crate generation
 
-This repository combines the [CoastSat](https://github.com/kvos/CoastSat) coastal remote sensing workflow with a custom module (`LP_Crate/`) designed to generate an interface RO-Crate describing the experiment's structure and metadata.
+This repository implements the generation of a LivePublication `interface.crate` for the CoastSat case study (Chapter 6). It produces RO-Crate metadata that describes the experiment infrastructure outputs required by the LivePublication interface, contributing tooling that constructs and validates the crate used as the interface object between computational infrastructure and live publications.
 
-## 📁 Repository Structure
 
-```
-CoastSat_Implementation/
-├── CoastSat/      	# CoastSat source code (as a Git submodule)
-├── LP_Crate/      	# Custom logic for generating interface.crate
-├── Micropublication/ 	# Early logic for generating Micropublications
-├── .gitmodules    	# Git submodule configuration
-└── README.md
-```
+## What it generates
 
-## 🚀 Getting Started
+- `interface.crate/` — a LivePublication interface RO-Crate for the CoastSat case study
 
-### 1. Clone the repository **with submodules**
+## Quick start
 
-```bash
-git clone --recurse-submodules https://github.com/YOUR_USERNAME/CoastSat_Implementation.git
-cd CoastSat_Implementation
-```
-
-> 🔄 If you've already cloned without `--recurse-submodules`, run:
-
-```bash
-git submodule update --init --recursive
-```
-
----
-
-### 2. Working with CoastSat
-
-To update the CoastSat submodule to the latest version:
-
-```bash
-cd CoastSat
-git checkout main         # or master, depending on branch
-git pull origin main
-cd ..
-git commit -am "Update CoastSat submodule"
-```
-
----
-
-### 3. Create and Activate Conda Environment
-
-This project uses a Conda environment `environment.yaml`. To create and activate the environment:
+Prerequisites:
+- Conda (recommended) and Python 3.10
+- A GitHub Personal Access Token with Gist permissions (`GITHUB_TOKEN`)
 
 ```bash
 conda env create -f environment.yaml
 conda activate coastsat_stencila_env
-```
-
----
-
-### 4. Run the Interface Crate Generator
-
-
-Once the environment is active, you can generate the `interface.crate` by running:
-
-```bash
+export GITHUB_TOKEN=your_token_here
 python LP_Crate/interface_crate.py --coastsat-dir CoastSat --output-dir interface.crate
 ```
 
-#### ⚠️ GitHub Token Requirement
+## Outputs
 
-This project uses the GitHub API to create or retrieve Gists for source code files. Before running the generator, make sure you have a GitHub Personal Access Token with Gist permissions and set it as an environment variable:
+- The main crate is written to `interface.crate/` (including its `ro-crate-metadata.json`).
+- Notebook-level crates are placed under `interface.crate/notebooks/`.
+- Summary outputs are written to `LP_Crate/summaries/` when the summary scripts are run.
+
+## How to cite
+
+TODO: add the Zenodo DOI after the first archival release.
+
+## Related artefacts
+
+- Upstream CoastSat repository: https://github.com/UoA-eResearch/CoastSat
+
+## License
+
+Apache-2.0. See `LICENSE`.
+
+## Metadata validation
 
 ```bash
-export GITHUB_TOKEN=your_token_here
+make validate-metadata
 ```
 
-You can create a token at [https://github.com/settings/tokens](https://github.com/settings/tokens).
+## RO-Crate regeneration
 
----
-
-### 5. About `LP_Crate`
-
-The `LP_Crate/` directory contains logic for generating a LivePublication-compatible interface crate (`interface.crate`) that documents the structure and execution of the CoastSat workflow.
-
----
-
-## 📄 License
-
-This repository follows the licensing terms of its constituent parts. See `CoastSat/LICENSE` for details about the CoastSat component.
+```bash
+python scripts/generate_ro_crate.py
+```
